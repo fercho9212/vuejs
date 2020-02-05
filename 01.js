@@ -7,11 +7,22 @@ const app = new Vue({
             {nombre:'Manzana',cantidad:1},
             {nombre:'Plantano',cantidad:15},
         ],
-        nuevaFruta: ''
+        nuevaFruta: '',
+        total:0
     },
     methods:{
-        guargar () {
+        guardar () {
             this.frutas.push({nombre:this.nuevaFruta,cantidad:10});
+            this.nuevaFruta='';
+        }
+    },
+    computed:{
+        sumarFrutas(){
+            this.total=0;
+            for(fruta of this.frutas){
+                this.total+=fruta.cantidad;
+            }
+            return this.total;
         }
     }
 })

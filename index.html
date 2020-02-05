@@ -8,16 +8,18 @@
 </head>
 <body>
     <div id="app">
-        <input type="text" v-model="nuevaFruta">
-        <button @click="guargar">Guardar</button>
+        <input type="text" v-model="nuevaFruta" @keyup.enter="guardar">
+        <button @click="guardar" >Guardar</button>
         <h1>{{titulo}}</h1>
-        
         <ul>
-            <li v-for="fruta of frutas"> 
-                <strong>Fruta :</strong> {{fruta.nombre}} <strong>Cantidad :</strong> {{fruta.cantidad}}
-                <span v-if="fruta.cantidad === 0"> SIN STOCK</span>
+            <li v-for="fruta of frutas">
+                <strong>Cantidad :</strong>  <input type="number" v-model.number="fruta.cantidad">
+                <strong>Fruta :</strong> {{fruta.nombre}}
+                <span v-if="fruta.cantidad === 0"> <strong>SIN STOCK</strong></span>
+                <button @click="fruta.cantidad+=1">+</button>
             </li>
         </ul>
+        <h4> Total : {{ sumarFrutas }} </h4>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="01.js"></script>
