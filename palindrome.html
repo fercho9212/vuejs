@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+      <center><h1 :class="style">{{ titulo }}</h1></center>
+      <div class="container">
+          <p>Ingrese la palabra</p>
+          <input type="text" name="palabra" id="palabra" v-model="palabra" @keyup="verificarPalindrome">
+          <strong v-if="palabra.length>=3">La palabra {{palabra}} es <div :class="[palindrome ? 'bg-success' : 'bg-warning']">{{resultadoString}}</div></strong>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="palindrome.js"></script>
+</body>
+</html>
